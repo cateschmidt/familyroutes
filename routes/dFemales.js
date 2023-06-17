@@ -9,6 +9,8 @@ const dFemalesController = require('../takeTheWheel/dFemales');
 
 router.post('/', dFemalesController.pushingUpDaisies);
 
+router.delete('/:id', dFemalesController.pullDaisies);
+
 
 
 

@@ -9,7 +9,7 @@ const lFemalesController = require('../takeTheWheel/lFemales');
 
 router.post('/', lFemalesController.fataleAttraction);
 
-
+router.delete('/:id', lFemalesController.deleteFA);
 
 
 module.exports = router;

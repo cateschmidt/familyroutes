@@ -9,6 +9,7 @@ const dMalesController = require('../takeTheWheel/dMales');
 
 router.post('/', dMalesController.valhalla);
 
+router.delete('/:id', dmalesController.removeValhalla);
 
 
 

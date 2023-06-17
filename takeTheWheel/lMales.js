@@ -29,10 +29,28 @@ const snipsAndSnails = async (req, res) => {
     }
 };
 
+const deleteSnipsAndSnails = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must have a valid ID to perform a delete.');
+        return;
+    }
+
+    const lMaleId = new ObjectId(req.params.id);
+    
+    try {
+        const response = await mongodb.getDb().db('').collection('lMale').deleteOne({_id: lMaleId }, true);
+        console.log(response);
+        if (response.removeValhalla > 0) {
+            res.status(200).send();
+        }
+    } catch (err) {
+        res.status(500).json(response.error || 'An error occurred while deleting.')
+    }
+}
 
 
 
 
 module.exports = {
-    snipsAndSnails
+    snipsAndSnails, deleteSnipsAndSnails
 };

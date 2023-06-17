@@ -29,10 +29,29 @@ const fataleAttraction = async (req, res) => {
     }
 };
 
+const deleteFA = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must have a valid ID to perform a delete.');
+        return;
+    }
+
+    const lFemalesId = new ObjectId(req.params.id);
+    
+    try {
+        const response = await mongodb.getDb().db('').collection('lFemales').deleteOne({_id: lFemalesId }, true);
+        console.log(response);
+        if (response.removeValhalla > 0) {
+            res.status(200).send();
+        }
+    } catch (err) {
+        res.status(500).json(response.error || 'An error occurred while deleting.')
+    }
+};
+
 
 
 
 
 module.exports = {
-    fataleAttraction
+    fataleAttraction, deleteFA
 };

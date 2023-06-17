@@ -29,10 +29,28 @@ const pushingUpDaisies = async (req, res) => {
     }
 };
 
+//DELETE: delete from collection using ID
+const pullDaisies = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must have a valid ID to perform a delete.');
+        return;
+    }
 
+    const dFemalesId = new ObjectId(req.params.id);
+
+    try {
+        const response = await mongodb.getDb().db('').collection('dFemales').deleteOne({_id: dFemalesId }, true);
+        console.log(response);
+        if (response.removingDaisies > 0) {
+            res.status(200).send();
+        }
+    } catch (err) {
+        res.status(500).json(response.error || 'An error occurred while deleting.')
+    }
+};
 
 
 
 module.exports = {
-    pushingUpDaisies
+    pushingUpDaisies, pullDaisies
 };

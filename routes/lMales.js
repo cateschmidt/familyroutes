@@ -9,6 +9,8 @@ const lMalesController = require('../takeTheWheel/lMales');
 
 router.post('/', lMalesController.snipsAndSnails);
 
+router.delete('/:id', lMalesController.deleteSnipsAndSnails);
+
 
 
 
