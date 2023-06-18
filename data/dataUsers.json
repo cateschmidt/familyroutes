@@ -1,0 +1,41 @@
+[{
+    "_id": {
+      "$oid": "648ddfa19fdb950e5f492e8f"
+    },
+    "userName": "Beth",
+    "email": "bethyz@byui.edu",
+    "password": ""
+  },
+  {
+    "_id": {
+      "$oid": "648de0359fdb950e5f492e90"
+    },
+    "userName": "Cate",
+    "email": "c8schmidt@gmail.com",
+    "password": ""
+  },
+  {
+    "_id": {
+      "$oid": "648de1da9fdb950e5f492e91"
+    },
+    "userName": "Diane",
+    "email": "diarndt@hotmail.com",
+    "password": ""
+  },
+  {
+    "_id": {
+      "$oid": "648de2129fdb950e5f492e92"
+    },
+    "userName": "Cherelle",
+    "email": "cherellelpayne@gmail.com",
+    "password": ""
+  },
+  {
+    "_id": {
+      "$oid": "648de2329fdb950e5f492e93"
+    },
+    "userName": "Jeff",
+    "email": "hat19008@byui.edu",
+    "password": ""
+  }
+]

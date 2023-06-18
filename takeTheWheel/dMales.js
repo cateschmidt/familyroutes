@@ -10,7 +10,12 @@ const router = express.Router();
 const valhalla = async (req, res) => {
     try {
         const dearlyDeparted = {
-
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            birthYear: req.body.birthYear,
+            birthLocation: req.body.birthLocation,
+            deathYear: req.body.deathYear,
+            deathLocation: req.body.deathLocation,
         };
         const result = await db.collection('dMales').insertOne(dearlyDeparted);
         if (result.acknowleged) {
@@ -37,9 +42,11 @@ const removeValhalla = async (req, res) => {
     }
 
     const dMaleId = new ObjectId(req.params.id);
-    
+
     try {
-        const response = await mongodb.getDb().db('').collection('dMale').deleteOne({_id: dMaleId }, true);
+        const response = await mongodb.getDb().db('').collection('dMale').deleteOne({
+            _id: dMaleId
+        }, true);
         console.log(response);
         if (response.removeValhalla > 0) {
             res.status(200).send();
@@ -53,5 +60,6 @@ const removeValhalla = async (req, res) => {
 
 
 module.exports = {
-    valhalla, removeValhalla
+    valhalla,
+    removeValhalla
 };

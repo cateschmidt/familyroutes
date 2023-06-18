@@ -10,7 +10,10 @@ const router = express.Router();
 const fataleAttraction = async (req, res) => {
     try {
         const girlPower = {
-
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            birthYear: req.body.birthYear,
+            birthLocation: req.body.birthLocation
         };
         const result = await db.collection('lFemales').insertOne(girlPower);
         if (result.acknowleged) {
@@ -36,9 +39,11 @@ const deleteFA = async (req, res) => {
     }
 
     const lFemalesId = new ObjectId(req.params.id);
-    
+
     try {
-        const response = await mongodb.getDb().db('').collection('lFemales').deleteOne({_id: lFemalesId }, true);
+        const response = await mongodb.getDb().db('').collection('lFemales').deleteOne({
+            _id: lFemalesId
+        }, true);
         console.log(response);
         if (response.removeValhalla > 0) {
             res.status(200).send();
@@ -53,5 +58,6 @@ const deleteFA = async (req, res) => {
 
 
 module.exports = {
-    fataleAttraction, deleteFA
+    fataleAttraction,
+    deleteFA
 };

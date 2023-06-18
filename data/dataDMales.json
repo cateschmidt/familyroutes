@@ -1,0 +1,89 @@
+[{
+    "_id": {
+      "$oid": "648dcd67472c91115ef93243"
+    },
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "birthYear": "1920",
+    "birthLocation": "Penacola, Florida, USA",
+    "deathYear": "1997",
+    "deathLocation": "Orlando, Florida, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dce7e472c91115ef93244"
+    },
+    "firstName": "Clark",
+    "lastName": "Kent",
+    "birthYear": "1955",
+    "birthLocation": "Gainsville, Florida, USA",
+    "deathYear": "1983",
+    "deathLocation": "Boise, Idaho, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dcede472c91115ef93245"
+    },
+    "firstName": "Anthony",
+    "lastName": "Stark",
+    "birthYear": "1925",
+    "birthLocation": "Hunstville, Alamaba, USA",
+    "deathYear": "1999",
+    "deathLocation": "Altlanta, Georgia, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dcf58472c91115ef93246"
+    },
+    "firstName": "Robert",
+    "lastName": "Banner",
+    "birthYear": "1915",
+    "birthLocation": "Birmingham, Alamaba, USA",
+    "deathYear": "1985",
+    "deathLocation": "Savannah, Georgia, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dcfb4472c91115ef93247"
+    },
+    "firstName": "Clinton",
+    "lastName": "Barton",
+    "birthYear": "1925",
+    "birthLocation": "Decatur, Alamaba, USA",
+    "deathYear": "1999",
+    "deathLocation": "Altlanta, Georgia, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dd033472c91115ef93248"
+    },
+    "firstName": "Victor",
+    "lastName": "Shade",
+    "birthYear": "1919",
+    "birthLocation": "Moses Lake, Washington, USA",
+    "deathYear": "1964",
+    "deathLocation": "Ogden, Utah, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dd0b7472c91115ef93249"
+    },
+    "firstName": "James",
+    "lastName": "Howlett",
+    "birthYear": "1909",
+    "birthLocation": "Olympia, Washington, USA",
+    "deathYear": "1983",
+    "deathLocation": "Logan, Utah, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dd10e472c91115ef9324a"
+    },
+    "firstName": "Scott",
+    "lastName": "Laing",
+    "birthYear": "1925",
+    "birthLocation": "Boise, Idaho USA",
+    "deathYear": "1995",
+    "deathLocation": "Gainsville, Florida, USA"
+  }
+]
