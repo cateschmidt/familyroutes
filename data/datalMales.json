@@ -1,0 +1,75 @@
+[{
+    "_id": {
+      "$oid": "648dc5bb472c91115ef93232"
+    },
+    "firstName": "Paul",
+    "fastName": "Jones",
+    "birthYear": "1955",
+    "birthLocation": "Calgary, Canada"
+
+  },
+  {
+    "_id": {
+      "$oid": "648dc7f0472c91115ef93234"
+    },
+    "firstName": "Larry",
+    "lastName": "Jones",
+    "birthYear": "1952",
+    "birthLocation": "Edmonton, Canada"
+
+  },
+  {
+    "_id": {
+      "$oid": "648dc823472c91115ef93235"
+    },
+    "firstName": "Robert",
+    "lastName": "Parr",
+    "birthYear": "1965",
+    "birthLocation": "Olympia, Washington, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dc86d472c91115ef93236"
+    },
+    "firstName": "William",
+    "lastName": "Parr",
+    "birthYear": "1969",
+    "birthLocation": "Tacoma, Washington, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dc8c9472c91115ef93237"
+    },
+    "firstName": "Daniel",
+    "lastName": "Walton",
+    "birthYear": "1948",
+    "birthLocation": "Jacksonville, Florida, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dc93c472c91115ef93238"
+    },
+    "firstName": "Daniel",
+    "lastName": "Walton",
+    "birthYear": "1948",
+    "birthLocation": "Jacksonville, Florida, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dc9df472c91115ef93239"
+    },
+    "firstName": "Timothy",
+    "lastName": "Smith",
+    "birthYear": "1944",
+    "birthLocation": "Sandpoint, Idaho, USA"
+  },
+  {
+    "_id": {
+      "$oid": "648dca18472c91115ef9323a"
+    },
+    "firstName": "Richard",
+    "lastName": "Smith",
+    "birthYear": "1948",
+    "birthLocation": "Bonners Ferry, Idaho, USA"
+  }
+]

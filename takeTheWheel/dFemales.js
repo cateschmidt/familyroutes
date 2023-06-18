@@ -10,7 +10,13 @@ const router = express.Router();
 const pushingUpDaisies = async (req, res) => {
     try {
         const dearlyBeloved = {
-
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            birthYear: req.body.birthYear,
+            birthLocation: req.body.birthLocation,
+            deathYear: req.body.deathYear,
+            deathLocation: req.body.deathLocation,
+            children: req.body.children
         };
         const result = await db.collection('dFemales').insertOne(dearlyBeloved);
         if (result.acknowleged) {
@@ -39,7 +45,9 @@ const pullDaisies = async (req, res) => {
     const dFemalesId = new ObjectId(req.params.id);
 
     try {
-        const response = await mongodb.getDb().db('').collection('dFemales').deleteOne({_id: dFemalesId }, true);
+        const response = await mongodb.getDb().db('').collection('dFemales').deleteOne({
+            _id: dFemalesId
+        }, true);
         console.log(response);
         if (response.removingDaisies > 0) {
             res.status(200).send();
@@ -52,5 +60,6 @@ const pullDaisies = async (req, res) => {
 
 
 module.exports = {
-    pushingUpDaisies, pullDaisies
+    pushingUpDaisies,
+    pullDaisies
 };

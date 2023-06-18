@@ -10,7 +10,10 @@ const router = express.Router();
 const snipsAndSnails = async (req, res) => {
     try {
         const puppyDogTails = {
-
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            birthYear: req.body.birthYear,
+            birthLocation: req.body.birthLocation
         };
         const result = await db.collection('lMales').insertOne(puppyDogTails);
         if (result.acknowleged) {
@@ -36,9 +39,11 @@ const deleteSnipsAndSnails = async (req, res) => {
     }
 
     const lMaleId = new ObjectId(req.params.id);
-    
+
     try {
-        const response = await mongodb.getDb().db('').collection('lMale').deleteOne({_id: lMaleId }, true);
+        const response = await mongodb.getDb().db('').collection('lMale').deleteOne({
+            _id: lMaleId
+        }, true);
         console.log(response);
         if (response.removeValhalla > 0) {
             res.status(200).send();
@@ -52,5 +57,6 @@ const deleteSnipsAndSnails = async (req, res) => {
 
 
 module.exports = {
-    snipsAndSnails, deleteSnipsAndSnails
+    snipsAndSnails,
+    deleteSnipsAndSnails
 };

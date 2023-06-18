@@ -1,0 +1,97 @@
+[{
+    "_id": {
+      "$oid": "648dd1ad472c91115ef9324b"
+    },
+    "firstName": "Jessica",
+    "lastName": "Jones",
+    "birthYear": "1927",
+    "birthLocation": "Lethbridge, Canada",
+    "deathYear": "1964",
+    "deathLocation": "Vancouver, Canada",
+    "children": "Yes"
+  },
+  {
+    "_id": {
+      "$oid": "648dd225472c91115ef9324c"
+    },
+    "firstName": "Barbara",
+    "lastName": "Gordon",
+    "birthYear": "1932",
+    "birthLocation": "Ogden, Utah",
+    "deathYear": "2004",
+    "deathLocation": "Miami, Florida",
+    "children": "Yes"
+  },
+  {
+    "_id": {
+      "$oid": "648dd26b472c91115ef9324d"
+    },
+    "firstName": "Wanda",
+    "lastName": "Frank",
+    "birthYear": "1964",
+    "birthLocation": "Olympia, Washington, USA",
+    "deathYear": "2020",
+    "deathLocation": "Seattle, Washington, USA",
+    "children": "Yes"
+  },
+  {
+    "_id": {
+      "$oid": "648dd336472c91115ef9324f"
+    },
+    "firstName": "Janet",
+    "lastName": "Pym",
+    "birthYear": "1907",
+    "birthLocation": "Red Deer, Canada",
+    "deathYear": "2002",
+    "deathLocation": "Calgary, Canada",
+    "children": "Yes"
+  },
+  {
+    "_id": {
+      "$oid": "648dd2d9472c91115ef9324e"
+    },
+    "firstName": "Jennifer",
+    "lastName": "Walters",
+    "birthYear": "1902",
+    "birthLocation": "Logan, Utah, USA",
+    "deathYear": "1986",
+    "deathLocation": "Moses Lake, Washington, USA",
+    "children": "No"
+  },
+  {
+    "_id": {
+      "$oid": "648dd378472c91115ef93250"
+    },
+    "firstName": "Katherine",
+    "lastName": "Kane",
+    "birthYear": "1890",
+    "birthLocation": "Helena, Montana",
+    "deathYear": "1967",
+    "deathLocation": "Boise, Idaho",
+    "children": "Yes"
+  },
+  {
+    "_id": {
+      "$oid": "648dd3dd472c91115ef93251"
+    },
+    "firstName": "Susan",
+    "lastName": "Richards",
+    "birthYear": "1947",
+    "birthLocation": "Calgary, Canada",
+    "deathYear": "2010",
+    "deathLocation": "Edmonton, Canada",
+    "children": "Yes"
+  },
+  {
+    "_id": {
+      "$oid": "648dd433472c91115ef93252"
+    },
+    "firstName": "Ivera",
+    "lastName": "Yates",
+    "birthYear": "1900",
+    "birthLocation": "Seattle, WA",
+    "deathYear": "1999",
+    "deathLocation": "Seattle, WA",
+    "children": "Yes"
+  }
+]
