@@ -8,7 +8,7 @@ const doc = {
     //host: 'localhost:8080',
     //schemes: ['http']
 
-    host: '//familyroutes.onrender.com',
+    host: 'familyroutes.onrender.com',
     schemes: ['https']
 };
 

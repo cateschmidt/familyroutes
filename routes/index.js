@@ -25,20 +25,6 @@ router.get('/checkLoginStatus', (req, res) => {
 });
 
 
-function isAuthenticated(req, res, next) {
-    try {
-        if (req.session.token) {
-            next();
-        } else {
-            throw new Error("You must be logged in to view Family Routes.");
-        }
-    } catch (error) {
-        res.status(400).json({
-            message: "Please login"
-        });
-    }
-}
-
 
 router.use('/', require('./swagger'));
 
@@ -48,7 +34,4 @@ router.use('/lFemales', require('./lFemales'));
 router.use('/lMales', require('./lMales'));
 
 
-module.exports = {
-    router,
-    isAuthenticated
-};
+module.exports = router;
