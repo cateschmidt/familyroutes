@@ -56,6 +56,9 @@
                 },
                 "deathLocation": {
                   "example": "any"
+                },
+                "children": {
+                  "example": "any"
                 }
               }
             }
