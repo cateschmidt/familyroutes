@@ -5,12 +5,23 @@
     "description": "CSE341 Final Project by Cherelle Payne, Diane Arndt, Beth Yanez, and Cate Schmidt",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "//familyroutes.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
+    "/checkLoginStatus": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -44,9 +55,6 @@
                   "example": "any"
                 },
                 "deathLocation": {
-                  "example": "any"
-                },
-                "children": {
                   "example": "any"
                 }
               }
