@@ -9,7 +9,7 @@ const validation = require('../middleware/validate');
 
 router.post('/', validation.saveLfemale, lFemalesController.fataleAttraction);
 
-router.delete('/:id', isAuthenticated, lFemalesController.deleteFA);
+router.delete('/:id', lFemalesController.deleteFA);
 
 
 module.exports = router;
