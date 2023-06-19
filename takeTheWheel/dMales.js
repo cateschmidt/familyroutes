@@ -17,14 +17,14 @@ const valhalla = async (req, res) => {
             deathYear: req.body.deathYear,
             deathLocation: req.body.deathLocation,
         };
-        const result = await db.collection('dMales').insertOne(dearlyDeparted);
+        const result = await mongodb.getDb().db().collection('dMales').insertOne(dearlyDeparted);
         if (result.acknowleged) {
             res.status(201).json({
                 message: 'Male ancestor added to the collection',
                 dearlyDepartedId: result.insertedId
             });
         } else {
-            res.status(400).jason('An error occurred. Ancestor not added to the collection.');
+            res.status(400).json('An error occurred. Ancestor not added to the collection.');
         }
     } catch (error) {
         console.error('Warning. Unable to access database.:', error);
@@ -44,7 +44,7 @@ const removeValhalla = async (req, res) => {
     const dMaleId = new ObjectId(req.params.id);
 
     try {
-        const response = await mongodb.getDb().db('').collection('dMale').deleteOne({
+        const response = await mongodb.getDb().db('').collection('dMales').deleteOne({
             _id: dMaleId
         }, true);
         console.log(response);
@@ -62,4 +62,4 @@ const removeValhalla = async (req, res) => {
 module.exports = {
     valhalla,
     removeValhalla
-};
+}

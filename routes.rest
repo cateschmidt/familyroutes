@@ -1,0 +1,53 @@
+### POST add DECEASED FEMALE to database 
+POST http://localhost:8080/dFemales HTTP/1.1 
+Content-Type: application/json
+
+{
+    "firstName": "Pauline",
+    "lastName": "Cook",
+    "birthYear": "1919",
+    "birthLocation": "Chickasaw Bayou, Mississippi",
+    "deathYear": "1978",
+    "deathLocation": "Santa Monica, California",
+    "children": "Yes"
+}
+
+### POST add DECEASED MALE to database 
+POST http://localhost:8080/dMales HTTP/1.1 
+Content-Type: application/json
+
+{
+    "firstName": "David",
+    "lastName": "Heighton",
+    "birthYear": "1926",
+    "birthLocation": "Wayland, Ohio",
+    "deathYear": "2008",
+    "deathLocation": "Wetzel, West Virginia"
+}
+
+### POST add LIVING FEMALE to database 
+POST http://localhost:8080/lFemales HTTP/1.1 
+Content-Type: application/json
+
+{
+    "firstName": "Sarah",
+    "lastName": "St.Pierre",
+    "birthYear": "1980",
+    "birthLocation": "Adair, Kentucky"
+}
+
+### POST add LIVING MALE to database 
+POST http://localhost:8080/lMales HTTP/1.1 
+Content-Type: application/json
+
+{
+    "firstName": "Marius",
+    "lastName": "Herbert",
+    "birthYear": "1992",
+    "birthLocation": "Pippin Lake, Ohio"
+}
+
+
+
+
+

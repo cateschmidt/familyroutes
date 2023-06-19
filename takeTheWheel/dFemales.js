@@ -18,14 +18,14 @@ const pushingUpDaisies = async (req, res) => {
             deathLocation: req.body.deathLocation,
             children: req.body.children
         };
-        const result = await db.collection('dFemales').insertOne(dearlyBeloved);
+        const result = await mongodb.getDb().db().collection('dFemales').insertOne(dearlyBeloved);
         if (result.acknowleged) {
             res.status(201).json({
                 message: 'Female ancestor added to the collection',
                 dearlyBelovedId: result.insertedId
             });
         } else {
-            res.status(400).jason('An error occurred. Ancestor not added to the collection.');
+            res.status(400).json('An error occurred. Ancestor not added to the collection.');
         }
     } catch (error) {
         console.error('Warning. Unable to access database.:', error);
@@ -62,4 +62,4 @@ const pullDaisies = async (req, res) => {
 module.exports = {
     pushingUpDaisies,
     pullDaisies
-};
+}

@@ -15,14 +15,14 @@ const fataleAttraction = async (req, res) => {
             birthYear: req.body.birthYear,
             birthLocation: req.body.birthLocation
         };
-        const result = await db.collection('lFemales').insertOne(girlPower);
+        const result = await mongodb.getDb().db().collection('lFemales').insertOne(girlPower);
         if (result.acknowleged) {
             res.status(201).json({
                 message: 'Female document added to the collection',
                 girlPowerId: result.insertedId
             });
         } else {
-            res.status(400).jason('An error occurred. Female not added to the collection.');
+            res.status(400).json('An error occurred. Female not added to the collection.');
         }
     } catch (error) {
         console.error('Warning. Unable to access database.:', error);
@@ -60,4 +60,4 @@ const deleteFA = async (req, res) => {
 module.exports = {
     fataleAttraction,
     deleteFA
-};
+}
