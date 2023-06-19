@@ -42,11 +42,11 @@ const pullDaisies = async (req, res) => {
         return;
     }
 
-    const dFemalesId = new ObjectId(req.params.id);
+    const dFemaleId = new ObjectId(req.params.id);
 
     try {
         const response = await mongodb.getDb().db('').collection('dFemales').deleteOne({
-            _id: dFemalesId
+            _id: dFemaleId
         }, true);
         console.log(response);
         if (response.removingDaisies > 0) {

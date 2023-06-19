@@ -38,11 +38,11 @@ const deleteFA = async (req, res) => {
         return;
     }
 
-    const lFemalesId = new ObjectId(req.params.id);
+    const lFemaleId = new ObjectId(req.params.id);
 
     try {
         const response = await mongodb.getDb().db('').collection('lFemales').deleteOne({
-            _id: lFemalesId
+            _id: lFemaleId
         }, true);
         console.log(response);
         if (response.removeValhalla > 0) {

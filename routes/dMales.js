@@ -9,7 +9,7 @@ const validation = require('../middleware/validate');
 
 router.post('/', validation.saveDmale, dMalesController.valhalla);
 
-router.delete('/:id', dMalesController.removeValhalla);
+router.delete('/:id', isAuthenticated, dMalesController.removeValhalla);
 
 
 
