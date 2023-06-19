@@ -10,16 +10,25 @@
     "swagger": "node ./swagger.js",
     "swagger-autogen": "node ./swagger.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:cateschmidt/familyroutes.git"
+  },
   "author": "Cherelle Payne, Diane Arndt, Beth Yanez, and Cate Schmidt",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.1.4",
+    "eslint": "^8.40.0",
     "express": "^4.18.2",
+    "express-openid-connect": "^2.16.0",
     "express-oauth2-jwt-bearer": "^1.5.0",
     "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
     "mongodb": "^5.6.0",
+    "mysql": "^2.18.1",
     "passport": "^0.6.0",
     "passport-auth0": "^1.4.3",
     "swagger-ui-express": "^4.6.3",
