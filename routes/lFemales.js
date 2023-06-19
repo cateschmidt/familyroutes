@@ -4,10 +4,10 @@ const express = require('express');
 const router = express.Router();
 
 const lFemalesController = require('../takeTheWheel/lFemales');
+const validation = require('../middleware/validate');
 
 
-
-router.post('/', lFemalesController.fataleAttraction);
+router.post('/', validation.saveLfemale, lFemalesController.fataleAttraction);
 
 router.delete('/:id', lFemalesController.deleteFA);
 

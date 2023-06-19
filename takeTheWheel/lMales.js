@@ -15,14 +15,14 @@ const snipsAndSnails = async (req, res) => {
             birthYear: req.body.birthYear,
             birthLocation: req.body.birthLocation
         };
-        const result = await db.collection('lMales').insertOne(puppyDogTails);
+        const result = await mongodb.getDb().db().collection('lMales').insertOne(puppyDogTails);
         if (result.acknowleged) {
             res.status(201).json({
                 message: 'Male document added to the collection',
                 puppyDogTailsId: result.insertedId
             });
         } else {
-            res.status(400).jason('An error occurred. Male not added to the collection.');
+            res.status(400).json('An error occurred. Male not added to the collection.');
         }
     } catch (error) {
         console.error('Warning. Unable to access database.:', error);
@@ -41,7 +41,7 @@ const deleteSnipsAndSnails = async (req, res) => {
     const lMaleId = new ObjectId(req.params.id);
 
     try {
-        const response = await mongodb.getDb().db('').collection('lMale').deleteOne({
+        const response = await mongodb.getDb().db('').collection('lMales').deleteOne({
             _id: lMaleId
         }, true);
         console.log(response);
@@ -59,4 +59,4 @@ const deleteSnipsAndSnails = async (req, res) => {
 module.exports = {
     snipsAndSnails,
     deleteSnipsAndSnails
-};
+}
