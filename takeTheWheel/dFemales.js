@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 
-// POST: add document to collection for a deseased female
+// POST: add document to collection for a deceased female
 const pushingUpDaisies = async (req, res) => {
     try {
         const dearlyBeloved = {
