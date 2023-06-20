@@ -24,7 +24,7 @@ const valhalla = async (req, res) => {
                 dearlyDepartedId: result.insertedId
             });
         } else {
-            res.status(400).json('An error occurred. Ancestor not added to the collection.');
+            res.status(400).json('An error occurred. Male ancestor not added to the collection.');
         }
     } catch (error) {
         console.error('Warning. Unable to access database.:', error);
