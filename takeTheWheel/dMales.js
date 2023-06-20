@@ -56,10 +56,33 @@ const removeValhalla = async (req, res) => {
     }
 };
 
-
-
-
-module.exports = {
-    valhalla,
-    removeValhalla
-}
+//PUT
+const putValhalla = async (req, res) => {
+    try{
+      validatedMales(req.body)
+      if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a id to update.');
+    }
+    const dMaleId = new ObjectId(req.params.id);
+    const deadFread = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        birthYear: req.body.birthYear,
+        birthLocation: req.body.birthLocation,
+        deathYear: req.body.deathYear,
+        deathLocation: req.body.deathLocation,
+    };
+    const response = await mongodb.getDb().db().collection('dMales').replaceOne(
+        { _id: dMaleId },
+        deadFread);
+  // console.log(response);
+  if (response.modifiedCount > 0) 
+{
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the male ancestor.');
+  }}
+  catch(err){
+    res.status(400).json({ message: err.message });
+  }
+  };  

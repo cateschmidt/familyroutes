@@ -54,10 +54,40 @@ const deleteFA = async (req, res) => {
 };
 
 
+const putFemmeFatale = async (req, res) => {
+    try{
+      validatelFemales(req.body)
+      if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a id to update.');
+    }
+    const lFemaleId = new ObjectId(req.params.id);
+    const Femme = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        birthYear: req.body.birthYear,
+        birthLocation: req.body.birthLocation,
+        deathYear: req.body.deathYear,
+        deathLocation: req.body.deathLocation,
+    };
+    const response = await mongodb.getDb().db().collection('lFemales').replaceOne(
+        { _id: lFemaleId },
+        Femme);
+  // console.log(response);
+  if (response.modifiedCount > 0) 
+{
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the living female.');
+  }}
+  catch(err){
+    res.status(400).json({ message: err.message });
+  }
+  };  
 
 
 
 module.exports = {
     fataleAttraction,
-    deleteFA
+    deleteFA,
+    putFemmeFatale
 }

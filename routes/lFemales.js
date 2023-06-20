@@ -11,5 +11,6 @@ router.post('/', validation.saveLfemale, lFemalesController.fataleAttraction);
 
 router.delete('/:id', lFemalesController.deleteFA);
 
+router.put('/:id',lFemalesController.putFemmeFatale);
 
 module.exports = router;
