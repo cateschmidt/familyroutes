@@ -3,13 +3,13 @@
 const express = require('express');
 const router = express.Router();
 
-const dMalesController = require('../takeTheWheel/dMales');
+const dFemalesController = require('../takeTheWheel/dFemales');
 const validation = require('../middleware/validate');
 
 
-router.post('/', validation.saveDmale, dMalesController.valhalla);
+router.post('/', validation.saveDfemale, dFemalesController.pushingUpDaisies);
 
-router.delete('/:id', dMalesController.removeValhalla);
+router.delete('/:id', dFemalesController.pullDaisies);
 
 
 
