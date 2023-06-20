@@ -3,13 +3,13 @@
 const express = require('express');
 const router = express.Router();
 
-const lFemalesController = require('../takeTheWheel/lFemales');
+const lMalesController = require('../takeTheWheel/lMales');
 const validation = require('../middleware/validate');
 
 
-router.post('/', validation.saveLfemale, lFemalesController.fataleAttraction);
+router.post('/', validation.saveLmale, lMalesController.snipsAndSnails);
 
-router.delete('/:id', lFemalesController.deleteFA);
+router.delete('/:id', lMalesController.deleteSnipsAndSnails);
 
 
 module.exports = router;
