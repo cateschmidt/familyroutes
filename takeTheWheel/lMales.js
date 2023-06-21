@@ -81,12 +81,43 @@ const deleteSnipsAndSnails = async (req, res) => {
     }
 }
 
+//PUT
+const putSnipsAndSnails = async (req, res) => {
+    try{
+      validatelMales(req.body)
+      if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a id to update.');
+    }
+    const lMaleId = new ObjectId(req.params.id);
+    const PuppyDogTails = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        birthYear: req.body.birthYear,
+        birthLocation: req.body.birthLocation,
+        deathYear: req.body.deathYear,
+        deathLocation: req.body.deathLocation,
+    };
+    const response = await mongodb.getDb().db().collection('lMales').replaceOne(
+        { _id: lMaleId },
+        PuppyDogTails);
+  // console.log(response);
+  if (response.modifiedCount > 0) 
+{
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the living female.');
+  }}
+  catch(err){
+    res.status(400).json({ message: err.message });
+  }
+  };  
 
 
 
 module.exports = {
     snipsAndSnails,
     deleteSnipsAndSnails,
+    putSnipsAndSnails,
     getAll,
     getSingle,
 }

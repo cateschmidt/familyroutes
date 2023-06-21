@@ -18,5 +18,7 @@ router.post('/', validation.saveDfemale, dFemalesController.pushingUpDaisies);
 /////////////////
 router.delete('/:id', dFemalesController.pullDaisies);
 
+//Put
+router.put('/:id',dFemalesController.puttingDaisies);
 
 module.exports = router;

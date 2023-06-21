@@ -17,6 +17,6 @@ router.post('/', validation.saveDmale, dMalesController.valhalla);
 //////////////////
 router.delete('/:id', dMalesController.removeValhalla);
 
-
+router.put('/:id',dMalesController.putValhalla);
 
 module.exports = router;

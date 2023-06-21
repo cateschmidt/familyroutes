@@ -17,5 +17,6 @@ router.post('/', validation.saveLmale, lMalesController.snipsAndSnails);
 //////////////////
 router.delete('/:id', lMalesController.deleteSnipsAndSnails);
 
+router.put('/:id',lMalesController.putSnipsAndSnails);
 
 module.exports = router;
