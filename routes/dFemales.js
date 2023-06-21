@@ -15,8 +15,7 @@ router.get('/:id', dFemalesController.getSingle);
 ////////////////////
 router.get('/', dFemalesController.getAll);
 router.get('/:id', dFemalesController.getSingle);
-// Post
-///////////////////
+
 // Post
 router.post('/', validation.saveDfemale, dFemalesController.pushingUpDaisies);
 
