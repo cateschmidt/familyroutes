@@ -42,14 +42,14 @@ const pullDaisies = async (req, res) => {
         return;
     }
 
-    const dFemaleId = new ObjectId(req.params.id);
+    const dFemalesId = new ObjectId(req.params.id);
 
     try {
-        const response = await mongodb.getDb().db('').collection('dFemales').deleteOne({
-            _id: dFemaleId
+        const response = await mongodb.getDb().db('familyRoutes').collection('dFemales').deleteOne({
+            _id: dFemalesId
         }, true);
         console.log(response);
-        if (response.removingDaisies > 0) {
+        if (response.pullDaisies > 0) {
             res.status(200).send();
         }
     } catch (err) {
@@ -57,9 +57,73 @@ const pullDaisies = async (req, res) => {
     }
 };
 
+//PUT
+const puttingDaisies = async (req, res) => {
+    try{
+      validatedFemales(req.body)
+      if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a id to update.');
+    }
+    const dFemaleId = new ObjectId(req.params.id);
+    const RIP = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        birthYear: req.body.birthYear,
+        birthLocation: req.body.birthLocation,
+        deathYear: req.body.deathYear,
+        deathLocation: req.body.deathLocation,
+        children: req.body.children
+    };
+    const response = await mongodb.getDb().db().collection('dFemales').replaceOne(
+        { _id: dFemaleId },
+        RIP);
+  // console.log(response);
+  if (response.modifiedCount > 0) 
+{
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the Female ancestor.');
+  }}
+  catch(err){
+    res.status(400).json({ message: err.message });
+  }
+  };  
+
+  // GET ALL: retrieve all deceased females from database
+const getAll = async (req, res, next) => {
+    try{
+    const result = await mongodb.getDb().db('familyRoutes').collection('dFemales').find();
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists); 
+    });
+  }catch(error){
+    res.status(500).json({message : error})
+    }
+  };
+// GET SINGLE: retrieve a single deceased female from database
+const getSingle = async (req, res, next) => {
+    try{
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().db('familyRoutes').collection('dFemales').find({_id:userId});
+    if (!result){
+      res.status(404).json({message : "unable to find ID"})
+    }
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]); // we just need the first one (the only one)
+    });
+  }catch(error){
+    res.status(500).json({message : "unable to get ID, make sure you have entered a valid ID"})
+    }
+  };
+
 
 
 module.exports = {
     pushingUpDaisies,
-    pullDaisies
+    pullDaisies,
+    puttingDaisies,
+    getAll,
+    getSingle
 }
