@@ -6,6 +6,37 @@ const express = require('express');
 const router = express.Router();
 
 
+
+// GET ALL: retrieve all deceased females from database
+const getAll = async (req, res, next) => {
+    try{
+    const result = await mongodb.getDb().db('familyRoutes').collection('dFemales').find();
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists); 
+    });
+  }catch(error){
+    res.status(500).json({message : error})
+    }
+  };
+// GET SINGLE: retrieve a single deceased female from database
+const getSingle = async (req, res, next) => {
+    try{
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().db('familyRoutes').collection('dFemales').find({_id:userId});
+    if (!result){
+      res.status(404).json({message : "unable to find ID"})
+    }
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]); // we just need the first one (the only one)
+    });
+  }catch(error){
+    res.status(500).json({message : "unable to get ID, make sure you have entered a valid ID"})
+    }
+  };
+
+
 // POST: add document to collection for a deceased female
 const pushingUpDaisies = async (req, res) => {
     try {
@@ -61,5 +92,7 @@ const pullDaisies = async (req, res) => {
 
 module.exports = {
     pushingUpDaisies,
-    pullDaisies
+    pullDaisies,
+    getAll,
+    getSingle
 }
