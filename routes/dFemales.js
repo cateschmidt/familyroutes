@@ -8,7 +8,7 @@ const validation = require('../middleware/validate');
 
 
 // Get
-///////////////////
+////////////////////
 router.get('/', dFemalesController.getAll);
 router.get('/:id', dFemalesController.getSingle);
 // Post
