@@ -20,8 +20,11 @@ router.get('/:id', dFemalesController.getSingle);
 // Post
 router.post('/', validation.saveDfemale, dFemalesController.pushingUpDaisies);
 
+//Delete
 router.delete('/:id', dFemalesController.pullDaisies);
 
+//Put
 router.put('/:id',dFemalesController.puttingDaisies);
 //is this extra branch working test
+
 module.exports = router;
