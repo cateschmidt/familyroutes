@@ -20,7 +20,11 @@ router.get('/:id', dMalesController.getSingle);
 // Post
 router.post('/', validation.saveDmale, dMalesController.valhalla);
 
+//Delete
 router.delete('/:id', dMalesController.removeValhalla);
+
+//Put
+router.put('/:id', dMalesControler.putValhalla);
 
 
 
