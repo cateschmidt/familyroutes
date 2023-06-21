@@ -11,13 +11,17 @@ const validation = require('../middleware/validate');
 router.get('/', dFemalesController.getAll);
 router.get('/:id', dFemalesController.getSingle);
 
+// Get
+////////////////////
+router.get('/', dFemalesController.getAll);
+router.get('/:id', dFemalesController.getSingle);
+// Post
+///////////////////
 // Post
 router.post('/', validation.saveDfemale, dFemalesController.pushingUpDaisies);
 
-//Delete
 router.delete('/:id', dFemalesController.pullDaisies);
 
-//Put
-router.put('/:id', dFemalesController.puttingDaisies);
+router.put('/:id',dFemalesController.puttingDaisies);
 //is this extra branch working test
 module.exports = router;
