@@ -119,5 +119,8 @@ const putValhalla = async (req, res) => {
 
 module.exports = {
     valhalla,
-    removeValhalla
+    removeValhalla,
+    getAll,
+    getSingle,
+    putValhalla
 }
