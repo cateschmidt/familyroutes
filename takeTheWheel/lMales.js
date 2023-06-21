@@ -60,6 +60,7 @@ const snipsAndSnails = async (req, res) => {
     }
 };
 
+//Delete
 const deleteSnipsAndSnails = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must have a valid ID to perform a delete.');
@@ -112,37 +113,11 @@ const putSnipsAndSnails = async (req, res) => {
   }
   };  
 
-  // GET ALL: retrieve all living males from database
-const getAll = async (req, res, next) => {
-    try{
-    const result = await mongodb.getDb().db('familyRoutes').collection('lMales').find();
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists); 
-    });
-  }catch(error){
-    res.status(500).json({message : error})
-    }
-  };
-// GET SINGLE: retrieve a single living male from database
-const getSingle = async (req, res, next) => {
-    try{
-    const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db('familyRoutes').collection('lMales').find({_id:userId});
-    if (!result){
-      res.status(404).json({message : "unable to find ID"})
-    }
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists[0]); // we just need the first one (the only one)
-    });
-  }catch(error){
-    res.status(500).json({message : "unable to get ID, make sure you have entered a valid ID"})
-    }
-  };
-
-
+ 
 module.exports = {
     snipsAndSnails,
-    deleteSnipsAndSnails
+    deleteSnipsAndSnails,
+    getAll,
+    getSingle,
+    putSnipsAndSnails
 }
