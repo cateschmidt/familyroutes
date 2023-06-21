@@ -10,8 +10,7 @@ const validation = require('../middleware/validate');
 ////////////////////
 router.get('/', dMalesController.getAll);
 router.get('/:id', dMalesController.getSingle);
-// Post
-///////////////////
+
 // Get
 ////////////////////
 router.get('/', dMalesController.getAll);
