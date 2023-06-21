@@ -92,5 +92,7 @@ const pullDaisies = async (req, res) => {
 
 module.exports = {
     pushingUpDaisies,
-    pullDaisies
+    pullDaisies,
+    getAll,
+    getSingle
 }
