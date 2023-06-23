@@ -23,7 +23,7 @@ router.post('/', validation.saveDmale, dMalesController.valhalla);
 router.delete('/:id', dMalesController.removeValhalla);
 
 //Put
-router.put('/:id', dMalesControler.putValhalla);
+router.put('/:id', dMalesController.putValhalla);
 
 
 
