@@ -99,7 +99,13 @@ DELETE https://familyroutes-abts.onrender.com/lFemales/648dcb88472c91115ef9323d
 ###
 DELETE https://familyroutes-abts.onrender.com/dMales/648dc7f0472c91115ef93234
 
+###
+PUT https://familyroutes-abts.onrender.com/dMales/648dce7e472c91115ef93244
+Content-Type: application/json
 
-
-
-
+{
+    "firstName": "Don",
+    "lastName": "Payne",
+    "birthYear": "1964",
+    "birthLocation": "Milkriver, Canada"
+}
