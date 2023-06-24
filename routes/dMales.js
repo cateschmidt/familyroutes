@@ -6,6 +6,7 @@ const router = express.Router();
 const dMalesController = require('../takeTheWheel/dMales');
 const validation = require('../middleware/validate');
 
+
 // Get
 ////////////////////
 router.get('/', dMalesController.getAll);

@@ -62,20 +62,21 @@ const snipsAndSnails = async (req, res) => {
 
 //Delete
 const deleteSnipsAndSnails = async (req, res) => {
+  try {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must have a valid ID to perform a delete.');
         return;
     }
 
     const lMalesId = new ObjectId(req.params.id);
-
-    try {
-        const response = await mongodb.getDb().db('familyRoutes').collection('lMales').deleteOne({
+      const response = await mongodb.getDb().db('familyRoutes').collection('lMales').deleteOne({
             _id: lMalesId
         }, true);
         console.log(response);
         if (response.deleteSnipsAndSnails > 0) {
-            res.status(200).send();
+            res.status(200).json({
+              message: 'lMale deleted successfully'
+            });
         }
     } catch (err) {
         res.status(500).json(response.error || 'An error occurred while deleting.')

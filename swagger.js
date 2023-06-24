@@ -5,11 +5,11 @@ const doc = {
         title: 'Family Routes',
         description: 'CSE341 Final Project by Cherelle Payne, Diane Arndt, Beth Yanez, and Cate Schmidt',
     },
-    //host: 'localhost:8080',
-    //schemes: ['http']
+    host: 'localhost:8080',
+    schemes: ['http']
 
-    host: 'familyroutes-abts.onrender.com',
-    schemes: ['https']
+    // host: 'familyroutes-abts.onrender.com',
+    // schemes: ['https']
 };
 
 const outputFile = './swagger.json';
