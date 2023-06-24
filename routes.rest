@@ -35,8 +35,8 @@ GET ALL https://familyroutes-abts.onrender.com/lMales/648dc7f0472c91115ef93234 H
 GET ALL https://familyroutes-abts.onrender.com/users/648de1da9fdb950e5f492e91 HTTP/1.1
 
 ### POST add DECEASED FEMALE to database 
-POST http://localhost:8080/dFemales HTTP/1.1 
-//POST https://familyroutes-abts.onrender.com/dFemales HTTP/1.1
+//POST http://localhost:8080/dFemales HTTP/1.1 
+POST https://familyroutes-abts.onrender.com/dFemales HTTP/1.1
 Content-Type: application/json
 
 {
