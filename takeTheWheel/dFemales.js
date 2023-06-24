@@ -39,6 +39,7 @@ const getSingle = async (req, res, next) => {
 
 // POST: add document to collection for a deceased female
 const pushingUpDaisies = async (req, res) => {
+  console.log('pushingUpDaisies', req.body);
     try {
         const dearlyBeloved = {
             firstName: req.body.firstName,
@@ -50,7 +51,7 @@ const pushingUpDaisies = async (req, res) => {
             children: req.body.children
         };
         const result = await mongodb.getDb().db().collection('dFemales').insertOne(dearlyBeloved);
-        if (result.acknowleged) {
+        if (result.acknowledged) {
             res.status(201).json({
                 message: 'Female ancestor added to the collection',
                 dearlyBelovedId: result.insertedId

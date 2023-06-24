@@ -44,7 +44,7 @@ const fataleAttraction = async (req, res) => {
             birthLocation: req.body.birthLocation
         };
         const result = await mongodb.getDb().db().collection('lFemales').insertOne(girlPower);
-        if (result.acknowleged) {
+        if (result.acknowledged) {
             res.status(201).json({
                 message: 'Female document added to the collection',
                 girlPowerId: result.insertedId
