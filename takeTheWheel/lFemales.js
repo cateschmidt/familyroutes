@@ -71,14 +71,16 @@ const deleteFA = async (req, res) => {
      const response = await mongodb.getDb().db('familyRoutes').collection('lFemales').deleteOne({
             _id: lFemalesId
         }, true);
-        console.log(response);
+        // console.log(response);
         if (response.deleteFA > 0) {
             res.status(200).json({
               message: 'lFemale deleted successfully'
             });
+        } else {
+          res.status(400).json('dfemale not found')
         }
     } catch (err) {
-        res.status(500).json(response.error || 'An error occurred while deleting.')
+        res.status(500).json('Unable to perform delete.')
     }
 };
 

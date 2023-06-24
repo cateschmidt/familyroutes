@@ -77,9 +77,11 @@ const deleteSnipsAndSnails = async (req, res) => {
             res.status(200).json({
               message: 'lMale deleted successfully'
             });
+        } else {
+          res.status(400).json('dfemale not found')
         }
     } catch (err) {
-        res.status(500).json(response.error || 'An error occurred while deleting.')
+        res.status(500).json('Unable to perform delete.')
     }
 }
 
