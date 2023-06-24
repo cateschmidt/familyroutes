@@ -40,11 +40,11 @@ POST https://familyroutes-abts.onrender.com/dFemales HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Pauline",
-    "lastName": "Cook",
-    "birthYear": "1919",
+    "firstName": "Lorna",
+    "lastName": "Dane",
+    "birthYear": "1864",
     "birthLocation": "Chickasaw Bayou, Mississippi",
-    "deathYear": "1978",
+    "deathYear": "1967",
     "deathLocation": "Santa Monica, California",
     "children": "Yes"
 }
@@ -55,8 +55,8 @@ POST https://familyroutes-abts.onrender.com/dMales HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "David",
-    "lastName": "Heighton",
+    "firstName": "Max",
+    "lastName": "Eisenhardt",
     "birthYear": "1926",
     "birthLocation": "Wayland, Ohio",
     "deathYear": "2008",
@@ -69,8 +69,8 @@ POST https://familyroutes-abts.onrender.com/lFemales HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Genievieve",
-    "lastName": "St.Pierre",
+    "firstName": "Eleanor",
+    "lastName": "Camacho",
     "birthYear": "1980",
     "birthLocation": "Adair, Kentucky"
 }
@@ -81,8 +81,8 @@ POST https://familyroutes-abts.onrender.com/lMales HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Marius",
-    "lastName": "Herbert",
+    "firstName": "Kurt",
+    "lastName": "Wagner",
     "birthYear": "1992",
     "birthLocation": "Pippin Lake, Ohio"
 }
