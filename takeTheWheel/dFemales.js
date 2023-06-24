@@ -50,7 +50,7 @@ const pushingUpDaisies = async (req, res) => {
             children: req.body.children
         };
         const result = await mongodb.getDb().db().collection('dFemales').insertOne(dearlyBeloved);
-        if (result.acknowleged) {
+        if (result.acknowledged) {
             res.status(201).json({
                 message: 'Female ancestor added to the collection',
                 dearlyBelovedId: result.insertedId
@@ -68,23 +68,24 @@ const pushingUpDaisies = async (req, res) => {
 
 //DELETE: delete from collection using ID
 const pullDaisies = async (req, res) => {
+  try {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must have a valid ID to perform a delete.');
         return;
     }
-
     const dFemalesId = new ObjectId(req.params.id);
 
-    try {
-        const response = await mongodb.getDb().db('familyRoutes').collection('dFemales').deleteOne({
+    const response = await mongodb.getDb().db('familyRoutes').collection('dFemales').deleteOne({
             _id: dFemalesId
         }, true);
         console.log(response);
         if (response.pullDaisies > 0) {
-            res.status(200).send();
-        }
+            res.status(200).json({
+              message: 'dFemale deleted successfully'
+            });
+        } 
     } catch (err) {
-        res.status(500).json(response.error || 'An error occurred while deleting.')
+        res.status(500).json(response.error || 'An error occurred while deleting.');
     }
 };
 

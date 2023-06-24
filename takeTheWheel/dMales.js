@@ -46,7 +46,7 @@ const valhalla = async (req, res) => {
             deathLocation: req.body.deathLocation,
         };
         const result = await mongodb.getDb().db().collection('dMales').insertOne(dearlyDeparted);
-        if (result.acknowleged) {
+        if (result.acknowledged) {
             res.status(201).json({
                 message: 'Male ancestor added to the collection',
                 dearlyDepartedId: result.insertedId
@@ -64,20 +64,21 @@ const valhalla = async (req, res) => {
 
 //DELETE: delete from collection using ID
 const removeValhalla = async (req, res) => {
+  try {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must have a valid ID to perform a delete.');
         return;
     }
 
     const dMalesId = new ObjectId(req.params.id);
-
-    try {
         const response = await mongodb.getDb().db('familyRoutes').collection('dMales').deleteOne({
             _id: dMalesId
         }, true);
         console.log(response);
         if (response.removeValhalla > 0) {
-            res.status(200).send();
+            res.status(200).json({
+              message: 'dMale deleted successfully'
+            });
         }
     } catch (err) {
         res.status(500).json(response.error || 'An error occurred while deleting.')

@@ -44,7 +44,7 @@ const fataleAttraction = async (req, res) => {
             birthLocation: req.body.birthLocation
         };
         const result = await mongodb.getDb().db().collection('lFemales').insertOne(girlPower);
-        if (result.acknowleged) {
+        if (result.acknowledged) {
             res.status(201).json({
                 message: 'Female document added to the collection',
                 girlPowerId: result.insertedId
@@ -61,20 +61,21 @@ const fataleAttraction = async (req, res) => {
 };
 
 const deleteFA = async (req, res) => {
+  try {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must have a valid ID to perform a delete.');
         return;
     }
 
     const lFemalesId = new ObjectId(req.params.id);
-
-    try {
-        const response = await mongodb.getDb().db('familyRoutes').collection('lFemales').deleteOne({
+     const response = await mongodb.getDb().db('familyRoutes').collection('lFemales').deleteOne({
             _id: lFemalesId
         }, true);
         console.log(response);
         if (response.deleteFA > 0) {
-            res.status(200).send();
+            res.status(200).json({
+              message: 'lFemale deleted successfully'
+            });
         }
     } catch (err) {
         res.status(500).json(response.error || 'An error occurred while deleting.')

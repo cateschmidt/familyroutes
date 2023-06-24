@@ -1,3 +1,39 @@
+# GET ALL --
+#///////////////////////////////////////////////////////////////
+# GET ALL DECEASED FEMALE
+###
+GET https://familyroutes-abts.onrender.com/dFemales HTTP/1.1
+# GET ALL DECEASED MALE
+###
+GET https://familyroutes-abts.onrender.com/dMales HTTP/1.1
+# GET ALL LIVE FEMALE
+###
+GET https://familyroutes-abts.onrender.com/lFemales HTTP/1.1
+# GET ALL LIVE MALE
+###
+GET https://familyroutes-abts.onrender.com/lMales HTTP/1.1
+# GET ALL USERS
+###
+GET https://familyroutes-abts.onrender.com/users HTTP/1.1
+
+# GET SINGLE -- need to paste in an id from above to get by ID. 
+#///////////////////////////////////////////////////////////////
+# GET SINGLE DECEASED FEMALE
+###
+GET  https://familyroutes-abts.onrender.com/dFemales/648dd1ad472c91115ef9324b HTTP/1.1
+# GET SINGLE DECEASED MALE
+###
+GET ALL https://familyroutes-abts.onrender.com/dMales/648dd0b7472c91115ef93249 HTTP/1.1
+# GET SINGLE LIVE FEMALE
+###
+GET ALL https://familyroutes-abts.onrender.com/lFemales/648dcb88472c91115ef9323d HTTP/1.1
+# GET SINGLE LIVE MALE
+###
+GET ALL https://familyroutes-abts.onrender.com/lMales/648dc7f0472c91115ef93234 HTTP/1.1
+# GET SINGLE USER
+###
+GET ALL https://familyroutes-abts.onrender.com/users/648de1da9fdb950e5f492e91 HTTP/1.1
+
 ### POST add DECEASED FEMALE to database 
 //POST http://localhost:8080/dFemales HTTP/1.1 
 POST https://familyroutes-abts.onrender.com/dFemales HTTP/1.1
@@ -52,15 +88,19 @@ Content-Type: application/json
 }
 
 ###
-DELETE https://familyroutes-abts.onrender.com/dFemales/648dd1ad472c91115ef9324b
+DELETE  http://localhost:8080/dFemales/648dd1ad472c91115ef9324b
+//DELETE https://familyroutes-abts.onrender.com/dFemales/648dd1ad472c91115ef9324b
 
 ###
+//POST http://localhost:8080/dMales/648dd0b7472c91115ef93249
 DELETE https://familyroutes-abts.onrender.com/dMales/648dd0b7472c91115ef93249
 
 ###
+//POST http://localhost:8080/lFemales/648dcb88472c91115ef9323d
 DELETE https://familyroutes-abts.onrender.com/lFemales/648dcb88472c91115ef9323d
 
 ###
+//POST http://localhost:8080/dMales/648dc7f0472c91115ef93234
 DELETE https://familyroutes-abts.onrender.com/dMales/648dc7f0472c91115ef93234
 
 

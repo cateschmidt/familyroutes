@@ -6,6 +6,7 @@ const router = express.Router();
 const dMalesController = require('../takeTheWheel/dMales');
 const validation = require('../middleware/validate');
 
+
 // Get
 ////////////////////
 router.get('/', dMalesController.getAll);
@@ -23,7 +24,7 @@ router.post('/', validation.saveDmale, dMalesController.valhalla);
 router.delete('/:id', dMalesController.removeValhalla);
 
 //Put
-router.put('/:id', dMalesControler.putValhalla);
+router.put('/:id', dMalesController.putValhalla);
 
 
 
