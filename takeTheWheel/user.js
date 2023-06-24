@@ -39,6 +39,7 @@ const getSingle = async (req, res, next) => {
 
 //Delete user
 const removeUser = async (req, res) => {
+  try {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must have a valid ID to perform a delete.');
         return;
@@ -46,16 +47,15 @@ const removeUser = async (req, res) => {
 
     const userId = new ObjectId(req.params.id);
 
-    try {
         const response = await mongodb.getDb().db('familyRoutes').collection('users').deleteOne({
             _id: userId
         }, true);
-        console.log(response);
-        if (response.removeUser > 0) {
+        
+        if (response.deletedCount > 0) {
             res.status(200).send();
         }
     } catch (err) {
-        res.status(500).json(response.error || 'An error occurred while deleting.')
+        res.status(500).json('An error occurred while deleting user, please login and try again.')
     }
 }
 

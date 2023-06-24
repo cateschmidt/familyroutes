@@ -72,7 +72,7 @@ const deleteSnipsAndSnails = async (req, res) => {
       const response = await mongodb.getDb().db('familyRoutes').collection('lMales').deleteOne({
             _id: lMalesId
         }, true);
-        console.log(response);
+        
         if (response.deleteCount > 0) {
             res.status(200).json({
               message: 'lMale deleted successfully'
