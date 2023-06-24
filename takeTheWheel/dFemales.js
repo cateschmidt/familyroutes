@@ -79,7 +79,7 @@ const pullDaisies = async (req, res) => {
             _id: dFemalesId
         }, true);
         // console.log(response);
-        if (response.pullDaisies > 0) {
+        if (response.deletedCount > 0) {
             res.status(200).json({
               message: 'dFemale deleted successfully'
             });

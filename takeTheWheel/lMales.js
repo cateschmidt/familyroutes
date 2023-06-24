@@ -73,7 +73,7 @@ const deleteSnipsAndSnails = async (req, res) => {
             _id: lMalesId
         }, true);
         console.log(response);
-        if (response.deleteSnipsAndSnails > 0) {
+        if (response.deleteCount > 0) {
             res.status(200).json({
               message: 'lMale deleted successfully'
             });

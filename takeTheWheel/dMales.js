@@ -75,7 +75,7 @@ const removeValhalla = async (req, res) => {
             _id: dMalesId
         }, true);
         // console.log(response);
-        if (response.removeValhalla > 0) {
+        if (response.deletedCount > 0) {
             res.status(200).json({
               message: 'dMale deleted successfully'
             });
