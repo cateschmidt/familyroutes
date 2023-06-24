@@ -44,7 +44,7 @@ const snipsAndSnails = async (req, res) => {
             birthLocation: req.body.birthLocation
         };
         const result = await mongodb.getDb().db().collection('lMales').insertOne(puppyDogTails);
-        if (result.acknowleged) {
+        if (result.acknowledged) {
             res.status(201).json({
                 message: 'Male document added to the collection',
                 puppyDogTailsId: result.insertedId

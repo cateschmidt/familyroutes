@@ -46,7 +46,7 @@ const valhalla = async (req, res) => {
             deathLocation: req.body.deathLocation,
         };
         const result = await mongodb.getDb().db().collection('dMales').insertOne(dearlyDeparted);
-        if (result.acknowleged) {
+        if (result.acknowledged) {
             res.status(201).json({
                 message: 'Male ancestor added to the collection',
                 dearlyDepartedId: result.insertedId
