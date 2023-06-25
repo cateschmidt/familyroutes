@@ -39,7 +39,7 @@ const getSingle = async (req, res, next) => {
 
 // POST: add document to collection for a deceased female
 const pushingUpDaisies = async (req, res) => {
-  console.log('pushingUpDaisies', req.body);
+  //console.log('pushingUpDaisies', req.body);
     try {
         const dearlyBeloved = {
             firstName: req.body.firstName,
