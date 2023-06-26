@@ -6,6 +6,7 @@ const app = express();
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const cookieParser = require('cookie-parser');
 
 app
     .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)) //must be first 
@@ -22,6 +23,7 @@ app
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         next();
     })
+    .use(cookieParser())
     .use('/', require('./routes'));
 
 process.on('uncaughtException', (err, origin) => {
@@ -36,3 +38,5 @@ mongodb.initDb((err) => {
         console.log(`Connected to DB and listening on ${port}`);
     }
 });
+
+module.exports = app;
