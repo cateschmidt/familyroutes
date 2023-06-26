@@ -113,3 +113,37 @@ Content-Type: application/json
     "birthYear": "1964",
     "birthLocation": "Milkriver, Canada"
 }
+
+###
+PUT https://familyroutes-abts.onrender.com/dMales/648dd10e472c91115ef9324a
+Content-Type: application/json
+
+{
+    "firstName": "Dannel",
+    "lastName": "Walton",
+    "birthYear": "1884",
+    "birthLocation": "BearLake, Idaho"
+}
+
+###
+PUT https://familyroutes-abts.onrender.com/lMales/648dc7f0472c91115ef93234
+Content-Type: application/json
+
+{
+    "firstName": "Donald",
+    "lastName": "Kemper",
+    "birthYear": "1962",
+    "birthLocation": "Taber, Canada"
+}
+
+###
+PUT https://familyroutes-abts.onrender.com/lFemales/648dcaab472c91115ef9323b
+Content-Type: application/json
+
+{
+    "firstName": "Jennifer",
+    "lastName": "Ogden",
+    "birthYear": "1981",
+    "birthLocation": "Calgary, Canada"
+}
+
