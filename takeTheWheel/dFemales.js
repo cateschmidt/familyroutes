@@ -5,8 +5,7 @@ const ObjectId = require('mongodb').ObjectId;
 const express = require('express');
 const router = express.Router();
 
-
-
+ 
 // GET ALL: retrieve all deceased females from database
 const getAll = async (req, res, next) => {
     try{
@@ -87,6 +86,13 @@ const pullDaisies = async (req, res) => {
         res.status(500).json(response.error || 'An error occurred while deleting.')
     }
 };
+
+//code for Pull validation 
+const validatedFemales = (data) => {
+  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
+  if (!firstName || !lastName || !birthYear || !birthLocation || !deathYear || !deathLocation || !children ){ 
+    throw new Error('all feilds must be filled, firstName,  lastName, birthYear, birthLocation, deathLocation, children ')
+  }
 
 //PUT
 const puttingDaisies = async (req, res) => {
