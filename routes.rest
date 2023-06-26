@@ -103,6 +103,8 @@ DELETE https://familyroutes-abts.onrender.com/lFemales/648dcb88472c91115ef9323d
 //POST http://localhost:8080/dMales/648dc7f0472c91115ef93234
 DELETE https://familyroutes-abts.onrender.com/dMales/648dc7f0472c91115ef93234
 
+
+//Dead Males PUT Request to database
 ###
 PUT https://familyroutes-abts.onrender.com/dMales/648dce7e472c91115ef93244
 Content-Type: application/json
@@ -113,3 +115,37 @@ Content-Type: application/json
     "birthYear": "1964",
     "birthLocation": "Milkriver, Canada"
 }
+//Dead FeMales PUT Request to database
+###
+PUT https://familyroutes-abts.onrender.com/dFemales/648dd1ad472c91115ef9324b
+Content-Type: application/json
+
+{
+    "firstName": "Dannel",
+    "lastName": "Walton",
+    "birthYear": "1884",
+    "birthLocation": "BearLake, Idaho"
+}
+//living Males PUT Request to database
+###
+PUT https://familyroutes-abts.onrender.com/lMales/648dc7f0472c91115ef93234
+Content-Type: application/json
+
+{
+    "firstName": "Donald",
+    "lastName": "Kemper",
+    "birthYear": "1962",
+    "birthLocation": "Taber, Canada"
+}
+//living Females PUT Request to database
+###
+PUT https://familyroutes-abts.onrender.com/lFemales/648dcaab472c91115ef9323b
+Content-Type: application/json
+
+{
+    "firstName": "Jennifer",
+    "lastName": "Ogden",
+    "birthYear": "1981",
+    "birthLocation": "Calgary, Canada"
+}
+

@@ -86,7 +86,13 @@ const removeValhalla = async (req, res) => {
         res.status(500).json('Unable to perform delete.')
     }
 };
-
+//code for Pull validation 
+const validatedMales = (data) => {
+  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
+  if (!firstName || !lastName || !birthYear || !birthLocation || !deathYear || !deathLocation ){ 
+    throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation, deathLocation')
+  }
+};
 //PUT
 const putValhalla = async (req, res) => {
     try{
@@ -101,7 +107,7 @@ const putValhalla = async (req, res) => {
         birthYear: req.body.birthYear,
         birthLocation: req.body.birthLocation,
         deathYear: req.body.deathYear,
-        deathLocation: req.body.deathLocation,
+        deathLocation: req.body.deathLocation
     };
     const response = await mongodb.getDb().db().collection('dMales').replaceOne(
         { _id: dMaleId },
