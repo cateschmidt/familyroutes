@@ -84,6 +84,13 @@ const deleteFA = async (req, res) => {
     }
 };
 
+//code for Pull validation 
+const validatelFemales = (data) => {
+  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
+  if (!firstName || !lastName || !birthYear || !birthLocation){ 
+    throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation')
+  }
+};
 //put
 const putFemmeFatale = async (req, res) => {
     try{
@@ -96,9 +103,7 @@ const putFemmeFatale = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         birthYear: req.body.birthYear,
-        birthLocation: req.body.birthLocation,
-        deathYear: req.body.deathYear,
-        deathLocation: req.body.deathLocation,
+        birthLocation: req.body.birthLocation
     };
     const response = await mongodb.getDb().db().collection('lFemales').replaceOne(
         { _id: lFemaleId },

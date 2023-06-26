@@ -97,6 +97,7 @@ const validatedFemales = (data) => {
   if (!firstName || !lastName || !birthYear || !birthLocation || !deathYear || !deathLocation || !children ){ 
     throw new Error('all feilds must be filled, firstName,  lastName, birthYear, birthLocation, deathLocation, children ')
   }
+};
 
 //PUT
 const puttingDaisies = async (req, res) => {

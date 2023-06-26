@@ -85,6 +85,13 @@ const deleteSnipsAndSnails = async (req, res) => {
     }
 }
 
+//code for Pull validation 
+const validateMales = (data) => {
+  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
+  if (!firstName || !lastName || !birthYear || !birthLocation){ 
+    throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation')
+  }
+};
 //PUT
 const putSnipsAndSnails = async (req, res) => {
     try{
@@ -97,9 +104,7 @@ const putSnipsAndSnails = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         birthYear: req.body.birthYear,
-        birthLocation: req.body.birthLocation,
-        deathYear: req.body.deathYear,
-        deathLocation: req.body.deathLocation,
+        birthLocation: req.body.birthLocation
     };
     const response = await mongodb.getDb().db().collection('lMales').replaceOne(
         { _id: lMaleId },
