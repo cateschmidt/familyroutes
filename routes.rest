@@ -104,7 +104,7 @@ DELETE https://familyroutes-abts.onrender.com/lFemales/648dcb88472c91115ef9323d
 DELETE https://familyroutes-abts.onrender.com/dMales/648dc7f0472c91115ef93234
 
 
-//Put requests
+//Dead Males PUT Request
 ###
 PUT https://familyroutes-abts.onrender.com/dMales/648dce7e472c91115ef93244
 Content-Type: application/json
@@ -115,9 +115,9 @@ Content-Type: application/json
     "birthYear": "1964",
     "birthLocation": "Milkriver, Canada"
 }
-
+//Dead FeMales PUT Request
 ###
-PUT https://familyroutes-abts.onrender.com/dMales/648dd10e472c91115ef9324a
+PUT https://familyroutes-abts.onrender.com/dFemales/648dd1ad472c91115ef9324b
 Content-Type: application/json
 
 {
@@ -126,7 +126,7 @@ Content-Type: application/json
     "birthYear": "1884",
     "birthLocation": "BearLake, Idaho"
 }
-
+//living Males PUT Request
 ###
 PUT https://familyroutes-abts.onrender.com/lMales/648dc7f0472c91115ef93234
 Content-Type: application/json
@@ -137,7 +137,7 @@ Content-Type: application/json
     "birthYear": "1962",
     "birthLocation": "Taber, Canada"
 }
-
+//living Females PUT Request
 ###
 PUT https://familyroutes-abts.onrender.com/lFemales/648dcaab472c91115ef9323b
 Content-Type: application/json
