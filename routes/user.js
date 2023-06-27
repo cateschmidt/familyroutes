@@ -6,16 +6,29 @@ const router = express.Router();
 const usersController = require('../takeTheWheel/lMales');
 const validation = require('../middleware/validate');
 
+// Protect Routes
+function isAuthenticated(req, res, next) {
+    try {
+      if (req.session.token) {
+        next();
+      } else {
+        throw new Error("Please login");
+      }
+    } catch (error) {
+      res.status(400).json({message: "Please login"});
+    }
+  }
+
 
 // Get
 ////////////////////
-router.get('/', usersController.getAll);
-router.get('/:id', usersController.getSingle);
+router.get('/', isAuthenticated, usersController.getAll);
+router.get('/:id', isAuthenticated, usersController.getSingle);
 
 
 
 //Delete User
-router.delete('/:id', usersController.removeUser);
+router.delete('/:id', isAuthenticated, usersController.removeUser);
 
 module.exports = router;
 
