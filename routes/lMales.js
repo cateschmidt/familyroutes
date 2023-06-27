@@ -11,10 +11,6 @@ const validation = require('../middleware/validate');
 router.get('/', lMalesController.getAll);
 router.get('/:id', lMalesController.getSingle);
 
-// Get
-////////////////////
-router.get('/', lMalesController.getAll);
-router.get('/:id', lMalesController.getSingle);
 
 //Put
 router.post('/', validation.saveLmale, lMalesController.snipsAndSnails);

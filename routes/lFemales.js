@@ -11,11 +11,6 @@ const validation = require('../middleware/validate');
 router.get('/', lFemalesController.getAll);
 router.get('/:id', lFemalesController.getSingle);
 
-// Get
-////////////////////
-router.get('/', lFemalesController.getAll);
-router.get('/:id', lFemalesController.getSingle);
-
 //Put
 router.post('/', validation.saveLfemale, lFemalesController.fataleAttraction);
 
