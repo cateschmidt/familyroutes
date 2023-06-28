@@ -13,8 +13,8 @@ router.get('/:id', dFemalesController.getSingle);
 
 // Get
 ////////////////////
-router.get('/', dFemalesController.getAll);
-router.get('/:id', dFemalesController.getSingle);
+//router.get('/', dFemalesController.getAll);
+//router.get('/:id', dFemalesController.getSingle);
 
 // Post
 router.post('/', validation.saveDfemale, dFemalesController.pushingUpDaisies);

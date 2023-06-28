@@ -89,7 +89,7 @@ const deleteSnipsAndSnails = async (req, res) => {
 const validateMales = (data) => {
   const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
   if (!firstName || !lastName || !birthYear || !birthLocation){ 
-    throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation')
+    throw new Error('all fields must be filled, firstName, lastName, birthYear, birthLocation')
   }
 };
 //PUT
@@ -97,7 +97,7 @@ const putSnipsAndSnails = async (req, res) => {
     try{
       validatelMales(req.body)
       if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a id to update.');
+      res.status(400).json('Must use a valid id to update.');
     }
     const lMaleId = new ObjectId(req.params.id);
     const PuppyDogTails = {
@@ -114,7 +114,7 @@ const putSnipsAndSnails = async (req, res) => {
 {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the living female.');
+    res.status(500).json(response.error || 'Some error occurred while updating the living male.');
   }}
   catch(err){
     res.status(400).json({ message: err.message });

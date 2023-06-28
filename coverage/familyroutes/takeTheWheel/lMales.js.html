@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.51% </span>
+                <span class="strong">18.96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/54</span>
+                <span class='fraction'>11/58</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>0/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.51% </span>
+                <span class="strong">18.96% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/54</span>
+                <span class='fraction'>11/58</span>
             </div>
         
             
@@ -189,7 +189,12 @@
 <a name='L124'></a><a href='#L124'>124</a>
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -281,12 +286,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -402,21 +412,26 @@ const deleteSnipsAndSnails = <span class="fstat-no" title="function not covered"
     }
 }
 &nbsp;
+//code for Pull validation 
+const validateMales = <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
+  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = <span class="cstat-no" title="statement not covered" >data;</span>
+<span class="cstat-no" title="statement not covered" >  if (!firstName || !lastName || !birthYear || !birthLocation){ </span>
+<span class="cstat-no" title="statement not covered" >    throw new Error('all fields must be filled, firstName, lastName, birthYear, birthLocation')</span>
+  }
+};
 //PUT
 const putSnipsAndSnails = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >    try{</span>
 <span class="cstat-no" title="statement not covered" >      validatelMales(req.body)</span>
 <span class="cstat-no" title="statement not covered" >      if (!ObjectId.isValid(req.params.id)) {</span>
-<span class="cstat-no" title="statement not covered" >      res.status(400).json('Must use a id to update.');</span>
+<span class="cstat-no" title="statement not covered" >      res.status(400).json('Must use a valid id to update.');</span>
     }
     const lMaleId = <span class="cstat-no" title="statement not covered" >new ObjectId(req.params.id);</span>
     const PuppyDogTails = <span class="cstat-no" title="statement not covered" >{</span>
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         birthYear: req.body.birthYear,
-        birthLocation: req.body.birthLocation,
-        deathYear: req.body.deathYear,
-        deathLocation: req.body.deathLocation,
+        birthLocation: req.body.birthLocation
     };
     const response = <span class="cstat-no" title="statement not covered" >await mongodb.getDb().db().collection('lMales').replaceOne(</span>
         { _id: lMaleId },
@@ -426,7 +441,7 @@ const putSnipsAndSnails = <span class="fstat-no" title="function not covered" >a
 {
 <span class="cstat-no" title="statement not covered" >    res.status(204).send();</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    res.status(500).json(response.error || 'Some error occurred while updating the living female.');</span>
+<span class="cstat-no" title="statement not covered" >    res.status(500).json(response.error || 'Some error occurred while updating the living male.');</span>
   }}
   catch(err){
 <span class="cstat-no" title="statement not covered" >    res.status(400).json({ message: err.message });</span>
@@ -448,7 +463,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-25T20:13:17.113Z
+                at 2023-06-27T01:30:10.498Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
