@@ -24,8 +24,6 @@ router.get('/checkLoginStatus', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
-
-
 router.use('/', require('./swagger'));
 
 router.use('/dFemales', require('./dFemales'));
