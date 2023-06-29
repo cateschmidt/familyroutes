@@ -78,7 +78,7 @@ const deleteSnipsAndSnails = async (req, res) => {
               message: 'lMale deleted successfully'
             });
         } else {
-          res.status(400).json('dfemale not found')
+          res.status(400).json('lMale not found')
         }
     } catch (err) {
         res.status(500).json('Unable to perform delete.')
@@ -89,7 +89,7 @@ const deleteSnipsAndSnails = async (req, res) => {
 const validateMales = (data) => {
   const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
   if (!firstName || !lastName || !birthYear || !birthLocation){ 
-    throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation')
+    throw new Error('all fields must be completed, firstName, lastName, birthYear, birthLocation')
   }
 };
 //PUT
@@ -114,7 +114,7 @@ const putSnipsAndSnails = async (req, res) => {
 {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the living female.');
+    res.status(500).json(response.error || 'Some error occurred while updating the living male.');
   }}
   catch(err){
     res.status(400).json({ message: err.message });
