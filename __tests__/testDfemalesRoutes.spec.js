@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const dotenv = require('dotenv');
 dotenv.config();
 
-
+// Connect and disconnect from the MongoDB database
 describe('post', () => {
     let connection;
     let db;
@@ -23,6 +23,7 @@ describe('post', () => {
         await connection.close()
     })
 
+    // Test the POST route for dFemales
     it('should post a new deceased female into the dFemales collection', async () => {
             const dFemalesCollection = db.collection('dFemales');
 
@@ -45,7 +46,15 @@ describe('post', () => {
 
             expect(postedDfemale).toEqual(mockDfemale)
         },
-        // delete the mock data
+
+        // Test the GET route for dFemales
+
+
+        //Test the PUT route for dFemales
+
+
+
+        // Test the DELETE route for dFemales (delete the mock data)
         it('should delete the deceased female from the dFemales collection', async () => {
             const dFemalesCollection = db.collection('dFemales');
             await dFemalesCollection.deleteOne({
@@ -56,6 +65,4 @@ describe('post', () => {
             });
             expect(deletedDFemale).toEqual(null)
         }))
-
-
 })
