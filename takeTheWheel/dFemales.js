@@ -49,7 +49,7 @@ const pushingUpDaisies = async (req, res) => {
             deathLocation: req.body.deathLocation,
             children: req.body.children
         };
-        const result = await mongodb.getDb().db().collection('dFemales').insertOne(dearlyBeloved);
+        const result = await mongodb.getDb().db('familyRoutes').collection('dFemales').insertOne(dearlyBeloved);
         if (result.acknowledged) {
             res.status(201).json({
                 message: 'Female ancestor added to the collection',
@@ -163,6 +163,7 @@ const puttingDaisies = async (req, res) => {
       children: req.body.children
     };
 
+
     const response = await mongodb.getDb().db().collection('dFemales').replaceOne(
       { _id: dFemaleId },
       RIP
@@ -174,6 +175,7 @@ const puttingDaisies = async (req, res) => {
       res.status(500).json(response.error || 'Some error occurred while updating the Female ancestor.');
     }
   } catch (err) {
+
     res.status(400).json({ message: err.message });
   }
 };
