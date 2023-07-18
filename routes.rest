@@ -125,6 +125,7 @@ Content-Type: application/json
     "lastName": "Walton",
     "birthYear": "1884",
     "birthLocation": "BearLake, Idaho"
+    
 }
 //living Males PUT Request to database
 ###
