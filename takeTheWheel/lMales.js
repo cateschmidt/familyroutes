@@ -78,13 +78,20 @@ const deleteSnipsAndSnails = async (req, res) => {
               message: 'lMale deleted successfully'
             });
         } else {
-          res.status(400).json('dfemale not found')
+          res.status(400).json('lMale not found')
         }
     } catch (err) {
         res.status(500).json('Unable to perform delete.')
     }
 }
 
+//code for Pull validation 
+const validateMales = (data) => {
+  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
+  if (!firstName || !lastName || !birthYear || !birthLocation){ 
+    throw new Error('all fields must be completed, firstName, lastName, birthYear, birthLocation')
+  }
+};
 //PUT
 const putSnipsAndSnails = async (req, res) => {
     try{
@@ -97,9 +104,7 @@ const putSnipsAndSnails = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         birthYear: req.body.birthYear,
-        birthLocation: req.body.birthLocation,
-        deathYear: req.body.deathYear,
-        deathLocation: req.body.deathLocation,
+        birthLocation: req.body.birthLocation
     };
     const response = await mongodb.getDb().db().collection('lMales').replaceOne(
         { _id: lMaleId },
@@ -109,7 +114,7 @@ const putSnipsAndSnails = async (req, res) => {
 {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the living female.');
+    res.status(500).json(response.error || 'Some error occurred while updating the living male.');
   }}
   catch(err){
     res.status(400).json({ message: err.message });

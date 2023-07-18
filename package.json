@@ -10,6 +10,12 @@
     "swagger": "node ./swagger.js",
     "swagger-autogen": "node ./swagger.js"
   },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:cateschmidt/familyroutes.git"
@@ -17,8 +23,10 @@
   "author": "Cherelle Payne, Diane Arndt, Beth Yanez, and Cate Schmidt",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.1.4",
     "eslint": "^8.40.0",
@@ -35,11 +43,17 @@
     "validatorjs": "^3.22.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@jest/globals": "^29.5.0",
+    "@types/jest": "^29.5.2",
+    "babel-jest": "^29.5.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.1",
     "prettier": "^2.8.8",
+    "supertest": "^6.3.3",
     "swagger-autogen": "^2.23.2"
   },
   "engines": {
