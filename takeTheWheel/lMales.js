@@ -86,7 +86,7 @@ const deleteSnipsAndSnails = async (req, res) => {
 }
 
 //code for Pull validation 
-const validateMales = (data) => {
+const validatelMales = (data) => {
   const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
   if (!firstName || !lastName || !birthYear || !birthLocation){ 
     throw new Error('all fields must be completed, firstName, lastName, birthYear, birthLocation')
