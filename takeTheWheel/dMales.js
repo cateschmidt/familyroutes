@@ -88,7 +88,7 @@ const removeValhalla = async (req, res) => {
 };
 //code for Pull validation 
 const validatedMales = (data) => {
-  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
+  const {firstName,  lastName, birthYear, birthLocation, deathYear, deathLocation } = data;
   if (!firstName || !lastName || !birthYear || !birthLocation || !deathYear || !deathLocation ){ 
     throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation, deathLocation')
   }

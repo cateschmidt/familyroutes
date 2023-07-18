@@ -91,7 +91,7 @@ const pullDaisies = async (req, res) => {
     }
 };
 
-//code for Pull validation 
+//code for Put validation 
 const validatedFemales = (data) => {
   const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
   if (!firstName || !lastName || !birthYear || !birthLocation || !deathYear || !deathLocation || !children ){ 
