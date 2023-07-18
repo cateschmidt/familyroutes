@@ -68,7 +68,7 @@ const deleteFA = async (req, res) => {
     }
 
     const lFemalesId = new ObjectId(req.params.id);
-     const response = await mongodb.getDb().db('familyRoutes').collection('lFemales').deleteOne({
+        const response = await mongodb.getDb().db('familyRoutes').collection('lFemales').deleteOne({
             _id: lFemalesId
         }, true);
         
@@ -77,7 +77,7 @@ const deleteFA = async (req, res) => {
               message: 'lFemale deleted successfully'
             });
         } else {
-          res.status(400).json('dfemale not found')
+          res.status(400).json('lfemale not found')
         }
     } catch (err) {
         res.status(500).json('Unable to perform delete.')

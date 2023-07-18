@@ -69,7 +69,7 @@ const deleteSnipsAndSnails = async (req, res) => {
     }
 
     const lMalesId = new ObjectId(req.params.id);
-      const response = await mongodb.getDb().db('familyRoutes').collection('lMales').deleteOne({
+        const response = await mongodb.getDb().db('familyRoutes').collection('lMales').deleteOne({
             _id: lMalesId
         }, true);
         

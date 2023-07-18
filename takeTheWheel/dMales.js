@@ -80,7 +80,7 @@ const removeValhalla = async (req, res) => {
               message: 'dMale deleted successfully'
             });
         } else {
-          res.status(400).json('dfemale not found')
+          res.status(400).json('dMale not found')
         }
     } catch (err) {
         res.status(500).json('Unable to perform delete.')
