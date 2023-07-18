@@ -1,3 +1,15 @@
+//login  Request to database
+###
+GET https://familyroutes-abts.onrender.com/login HTTP/1.1
+
+###
+GET https://familyroutes-abts.onrender.com/callback HTTP/1.1
+
+###
+GET https://familyroutes-abts.onrender.com/logout HTTP/1.1
+
+
+
 # GET ALL --
 #///////////////////////////////////////////////////////////////
 # GET ALL DECEASED FEMALE
@@ -36,7 +48,7 @@ GET ALL https://familyroutes-abts.onrender.com/users/648de1da9fdb950e5f492e91 HT
 
 ### POST add DECEASED FEMALE to database 
 //POST http://localhost:8080/dFemales HTTP/1.1 
-POST https://familyroutes-abts.onrender.com/dFemales HTTP/1.1
+POST https://familyroutes-abts.onrender.com/dFemales/648dd1ad472c91115ef9324b HTTP/1.1
 Content-Type: application/json
 
 {
@@ -51,7 +63,7 @@ Content-Type: application/json
 
 ### POST add DECEASED MALE to database 
 //POST http://localhost:8080/dMales HTTP/1.1 
-POST https://familyroutes-abts.onrender.com/dMales HTTP/1.1
+POST https://familyroutes-abts.onrender.com/dMales/648dd0b7472c91115ef93249 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -65,7 +77,7 @@ Content-Type: application/json
 
 ### POST add LIVING FEMALE to database 
 //POST http://localhost:8080/lFemales HTTP/1.1 
-POST https://familyroutes-abts.onrender.com/lFemales HTTP/1.1
+POST https://familyroutes-abts.onrender.com/lFemales/648dcb88472c91115ef9323d HTTP/1.1
 Content-Type: application/json
 
 {
@@ -77,7 +89,7 @@ Content-Type: application/json
 
 ### POST add LIVING MALE to database 
 //POST http://localhost:8080/lMales HTTP/1.1 
-POST https://familyroutes-abts.onrender.com/lMales HTTP/1.1
+POST https://familyroutes-abts.onrender.com/lMales/648dc7f0472c91115ef93234 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -112,10 +124,12 @@ Content-Type: application/json
 {
     "firstName": "Don",
     "lastName": "Payne",
-    "birthYear": "1964",
-    "birthLocation": "Milkriver, Canada"
+    "birthYear": "1944",
+    "birthLocation": "Milkriver, Canada",
+    "deathYear": "2004",
+    "deathLocation": "Calgary, Canada"
 }
-//Dead FeMales PUT Request to database
+//Dead FeMales PUT Request to database//changes to routes
 ###
 PUT https://familyroutes-abts.onrender.com/dFemales/648dd1ad472c91115ef9324b
 Content-Type: application/json
@@ -124,8 +138,10 @@ Content-Type: application/json
     "firstName": "Dannel",
     "lastName": "Walton",
     "birthYear": "1884",
-    "birthLocation": "BearLake, Idaho"
-    
+    "birthLocation": "BearLake, Idaho",
+    "deathYear": "1964",
+    "deathLocation": "Calgary, Canada",
+    "children": "Yes"
 }
 //living Males PUT Request to database
 ###
@@ -149,4 +165,7 @@ Content-Type: application/json
     "birthYear": "1981",
     "birthLocation": "Calgary, Canada"
 }
+
+
+
 

@@ -4,7 +4,7 @@
   "description": "CSE341 Final Project, Family Routes, by Cherelle Payne, Diane Arndt, Beth Yanez, and Cate Schmidt",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll --coverage",
     "start": "nodemon server.js",
     "start-prod": "node server.js",
     "swagger": "node ./swagger.js",

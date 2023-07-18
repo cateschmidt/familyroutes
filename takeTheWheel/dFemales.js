@@ -49,7 +49,7 @@ const pushingUpDaisies = async (req, res) => {
             deathLocation: req.body.deathLocation,
             children: req.body.children
         };
-        const result = await mongodb.getDb().db().collection('dFemales').insertOne(dearlyBeloved);
+        const result = await mongodb.getDb().db('familyRoutes').collection('dFemales').insertOne(dearlyBeloved);
         if (result.acknowledged) {
             res.status(201).json({
                 message: 'Female ancestor added to the collection',
@@ -100,38 +100,85 @@ const validatedFemales = (data) => {
 };
 
 //PUT
+// const puttingDaisies = async (req, res) => {
+//     try{
+//       validatedFemales(req.body)
+//       if (!ObjectId.isValid(req.params.id)) {
+//       res.status(400).json('Must use a id to update.');
+//     }
+//     const dFemaleId = new ObjectId(req.params.id);
+//     const RIP = {
+//         firstName: req.body.firstName,
+//         lastName: req.body.lastName,
+//         birthYear: req.body.birthYear,
+//         birthLocation: req.body.birthLocation,
+//         deathYear: req.body.deathYear,
+//         deathLocation: req.body.deathLocation,
+//         children: req.body.children
+//     };
+//     const response = await mongodb.getDb().db().collection('dFemales').replaceOne(
+//         { _id: dFemaleId },
+//         RIP);
+//   // console.log(response);
+//   if (response.modifiedCount > 0) 
+// {
+//     res.status(204).send();
+//   } else {
+//     res.status(500).json(response.error || 'Some error occurred while updating the Female ancestor.');
+//   }}
+//   catch(err){
+//     res.status(400).json({ message: err.message });
+//   }
+//   };  
+
+///this is the updated code with 'data' 
+///this is the new code
+
 const puttingDaisies = async (req, res) => {
-    try{
-      validatedFemales(req.body)
-      if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a id to update.');
-    }
-    const dFemaleId = new ObjectId(req.params.id);
-    const RIP = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        birthYear: req.body.birthYear,
-        birthLocation: req.body.birthLocation,
-        deathYear: req.body.deathYear,
-        deathLocation: req.body.deathLocation,
-        children: req.body.children
+  try {
+    // Define your validation function to check the req.body properties
+    const validateInput = (data) => {
+      // Perform your validation checks here
+      if (!data.firstName || !data.lastName || !data.birthYear || !data.deathYear) {
+        throw new Error('Missing required fields');
+      }
     };
+
+    // Invoke the validation function passing in the req.body object
+    validateInput(req.body);
+
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use an ID to update.');
+    }
+
+    const dFemaleId = new ObjectId(req.params.id);
+
+    const RIP = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      birthYear: req.body.birthYear,
+      birthLocation: req.body.birthLocation,
+      deathYear: req.body.deathYear,
+      deathLocation: req.body.deathLocation,
+      children: req.body.children
+    };
+
+
     const response = await mongodb.getDb().db().collection('dFemales').replaceOne(
-        { _id: dFemaleId },
-        RIP);
-  // console.log(response);
-  if (response.modifiedCount > 0) 
-{
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the Female ancestor.');
-  }}
-  catch(err){
+      { _id: dFemaleId },
+      RIP
+    );
+
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while updating the Female ancestor.');
+    }
+  } catch (err) {
+
     res.status(400).json({ message: err.message });
   }
-  };  
-
-
+};
 
 module.exports = {
     pushingUpDaisies,

@@ -6,18 +6,6 @@ const router = express.Router();
 const dFemalesController = require('../takeTheWheel/dFemales');
 const validation = require('../middleware/validate');
 
-// Protect Routes
-function isAuthenticated(req, res, next) {
-    try {
-      if (req.session.token) {
-        next();
-      } else {
-        throw new Error("Please login");
-      }
-    } catch (error) {
-      res.status(400).json({message: "Please login"});
-    }
-  }
 
 // Get
 ////////////////////
@@ -33,7 +21,10 @@ router.post('/', isAuthenticated, validation.saveDfemale, dFemalesController.pus
 router.delete('/:id', isAuthenticated, dFemalesController.pullDaisies);
 
 //Put
+
+
 router.put('/:id', isAuthenticated, dFemalesController.puttingDaisies);
+
 //is this extra branch working test
 
 module.exports = router;

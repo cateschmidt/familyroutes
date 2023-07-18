@@ -24,8 +24,10 @@ function isAuthenticated(req, res, next) {
 router.get('/', isAuthenticated, lMalesController.getAll);
 router.get('/:id', isAuthenticated, lMalesController.getSingle);
 
+
 //Put
 router.post('/', isAuthenticated, validation.saveLmale, lMalesController.snipsAndSnails);
+
 
 //Delete
 router.delete('/:id', isAuthenticated, lMalesController.deleteSnipsAndSnails);
