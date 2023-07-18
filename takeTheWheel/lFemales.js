@@ -84,42 +84,80 @@ const deleteFA = async (req, res) => {
     }
 };
 
-//code for Pull validation 
-const validatelFemales = (data) => {
-  const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
-  if (!firstName || !lastName || !birthYear || !birthLocation){ 
-    throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation')
+//code for Put validation 
+// const validatelFemales = (data) => {
+//   const {firstName,  lastName, birthYear, birthLocation, deathLocation, children } = data;
+//   if (!firstName || !lastName || !birthYear || !birthLocation){ 
+//     throw new Error('all feilds must be filled, firstName, lastName, birthYear, birthLocation')
+//   }
+// };
+// //put
+// const putFemmeFatale = async (req, res) => {
+//     try{
+//       validatelFemales(req.body)
+//       if (!ObjectId.isValid(req.params.id)) {
+//       res.status(400).json('Must use a id to update.');
+//     }
+//     const lFemaleId = new ObjectId(req.params.id);
+//     const Femme = {
+//         firstName: req.body.firstName,
+//         lastName: req.body.lastName,
+//         birthYear: req.body.birthYear,
+//         birthLocation: req.body.birthLocation
+//     };
+//     const response = await mongodb.getDb().db().collection('lFemales').replaceOne(
+//         { _id: lFemaleId },
+//         Femme);
+//   // console.log(response);
+//   if (response.modifiedCount > 0) 
+// {
+//     res.status(204).send();
+//   } else {
+//     res.status(500).json(response.error || 'Some error occurred while updating the living female.');
+//   }}
+//   catch(err){
+//     res.status(400).json({ message: err.message });
+//   }
+//   };  
+const validateFemales = (data) => {
+  const { firstName, lastName, birthYear, birthLocation } = data;
+  if (!firstName || !lastName || !birthYear || !birthLocation) { 
+    throw new Error('All fields must be filled: firstName, lastName, birthYear, birthLocation');
   }
 };
-//put
+
+// PUT
 const putFemmeFatale = async (req, res) => {
-    try{
-      validatelFemales(req.body)
-      if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a id to update.');
+  try {
+    validateFemales(req.body);
+
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use an ID to update.');
     }
+
     const lFemaleId = new ObjectId(req.params.id);
+
     const Femme = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        birthYear: req.body.birthYear,
-        birthLocation: req.body.birthLocation
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      birthYear: req.body.birthYear,
+      birthLocation: req.body.birthLocation
     };
+
     const response = await mongodb.getDb().db().collection('lFemales').replaceOne(
-        { _id: lFemaleId },
-        Femme);
-  // console.log(response);
-  if (response.modifiedCount > 0) 
-{
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the living female.');
-  }}
-  catch(err){
+      { _id: lFemaleId },
+      Femme
+    );
+
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while updating the living female.');
+    }
+  } catch (err) {
     res.status(400).json({ message: err.message });
   }
-  };  
-
+};
 
 module.exports = {
     fataleAttraction,
