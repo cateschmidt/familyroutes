@@ -131,6 +131,9 @@ const validatedFemales = (data) => {
 //   }
 //   };  
 
+///this is the updated code with 'data' 
+///this is the new code
+
 const puttingDaisies = async (req, res) => {
   try {
     // Define your validation function to check the req.body properties
