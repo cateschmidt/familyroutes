@@ -1,23 +1,25 @@
-const MongoClient = require('mongodb').MongoClient;
+const { MongoMemoryServer } = require('mongodb-memory-server');
+const { MongoClient } = require('mongodb');
 
-let connection;
-let db;
+let mongoServer;
 
-async function setupDatabase() {
-  connection = await MongoClient.connect(process.env.MONGODB_URI, {
+async function setup() {
+  // mongoServer = new MongoMemoryServer();
+  // const mongoUri = await mongoServer.getUri();
+  mongoServer = await MongoMemoryServer.create();
+  const uri = mongoServer.getUri();
+  // Set up a connection to the mock MongoDB server
+  await MongoClient.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  db = await connection.db('familyRoutes');
 }
 
-async function teardownDatabase() {
-  await connection.close();
+async function teardown() {
+  // Cleanup and stop the mock MongoDB server
+  await mongoServer.stop();
 }
 
-module.exports = {
-  setupDatabase,
-  teardownDatabase,
-  getDb: () => db,
-};
+module.exports = { setup, teardown };
+
 

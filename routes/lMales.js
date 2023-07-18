@@ -16,7 +16,7 @@ router.get('/:id', lMalesController.getSingle);
 router.get('/', lMalesController.getAll);
 router.get('/:id', lMalesController.getSingle);
 
-//Put
+//Post
 router.post('/', validation.saveLmale, lMalesController.snipsAndSnails);
 
 //Delete

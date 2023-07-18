@@ -16,7 +16,7 @@ router.get('/:id', lFemalesController.getSingle);
 router.get('/', lFemalesController.getAll);
 router.get('/:id', lFemalesController.getSingle);
 
-//Put
+//Post
 router.post('/', validation.saveLfemale, lFemalesController.fataleAttraction);
 
 //Delete
