@@ -83,7 +83,7 @@ const deleteSnipsAndSnails = async (req, res) => {
     } catch (err) {
         res.status(500).json('Unable to perform delete.')
     }
-}
+};
 
 //code for Pull validation 
 const validatelMales = (data) => {
